@@ -23,11 +23,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/izin', [Controllers\AttendanceController::class, 'submitIzin'])->name('presence.submit-izin');
     Route::post('/check-in', [Controllers\AttendanceController::class, 'clockIn'])->name('presence.clock-in');
     Route::post('/check-out', [Controllers\AttendanceController::class, 'clockOut'])->name('presence.clock-out');
+   Route::get('/history-absence', [Controllers\AttendanceController::class, 'history'])
+    ->name('history-absence');
 });
-
-Route::get('/history-absence', [Controllers\AttendanceController::class, 'history'])
-    ->name('history-absence')
-    ->middleware('auth');
 
 
 require __DIR__.'/auth.php';
